@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical">-->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+
+            <LinearLayout
+                android:id="@+id/bottom_bar_container"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/back_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:src="@drawable/back_background" />
+
+                <ImageButton
+                    android:id="@+id/forward_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="8dp"
+                    android:src="@drawable/forward_background" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:id="@+id/favor_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:src="@drawable/favor_no" />
+
+                <TextView
+                    android:id="@+id/favor_count_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="8dp"
+                    android:textColor="@color/blue_gray_30"
+                    android:textSize="14sp"
+                    tools:text="13" />
+
+                <ImageView
+                    android:id="@+id/comment_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:src="@drawable/comment" />
+
+                <TextView
+                    android:id="@+id/comment_count_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="8dp"
+                    android:textColor="@color/blue_gray_30"
+                    android:textSize="14sp"
+                    tools:text="3" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/bottom_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_87" />
+
+        </FrameLayout>
+
+        <View
+            android:id="@+id/rv_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_87" />
+
+        <LinearLayout
+            android:id="@+id/comment_submit_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <ImageView
+                android:id="@+id/refresh_iv"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?selectableItemBackground"
+                android:padding="6dp"
+                android:src="@drawable/refresh" />
+
+            <com.tomeokin.lspush.widget.ClearEditText
+                android:id="@+id/comment_et"
+                style="@style/ClearEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_background"
+                android:hint="@string/comment_hint"
+                android:inputType="textMultiLine"
+                android:maxLines="3"
+                android:minHeight="38dp"
+                tools:hint="评论" />
+
+            <TextView
+                android:id="@+id/submit_comment_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:includeFontPadding="false"
+                android:padding="8dp"
+                android:text="@string/send_btn"
+                android:textColor="@color/blue_5_whiteout"
+                android:textSize="14sp"
+                tools:text="发送" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/comment_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    <!--</LinearLayout>-->
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+apply from: 'buildsystem/metadata.gradle'
+apply plugin: 'com.github.ben-manes.versions'
+
+buildscript {
+    repositories {
+    	//jcenter()
+    	maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+    }
+    dependencies {
+        // https://github.com/google/android-gradle-dsl
+        classpath 'com.android.tools.build:gradle:2.3.1'
+        // result in ${buildDir}/outputs/dexcount/${variant}
+        classpath "com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.6.4"
+        // run help->dependencyUpdates to see new available version
+        classpath "com.github.ben-manes:gradle-versions-plugin:0.14.0"
+        // bugly file upload
+        classpath "com.tencent.bugly:symtabfileuploader:2.0.9"
+    }
+}
+
+allprojects {
+    repositories {
+        //jcenter()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public"}
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    isCI = System.getenv("CI") as boolean
+    bintaryUpload = !isCI
+}

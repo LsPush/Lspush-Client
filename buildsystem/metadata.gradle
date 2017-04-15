@@ -1,0 +1,35 @@
+ext {
+    Properties properties = new Properties()
+    boolean isExists = false;
+    try {
+        File file = project.rootProject.file('project.properties')
+        isExists = file.exists();
+        if (isExists) properties.load(file.newDataInputStream())
+    } catch (Throwable ignored) {
+        project.logger.log(LogLevel.WARN, "don't has project.properties file")
+    }
+
+    metadata = [
+            alias           : isExists ? properties.getProperty("key.alias") : System.getenv("ALIAS_NAME"),
+            pwd             : isExists ? properties.getProperty("key.pwd") : System.getenv("ALIAS_PWD"),
+            storeFile       : isExists ? properties.getProperty("key.storeFile") : System.getenv("STORE_FILE"),
+            storePwd        : isExists ? properties.getProperty("key.storePwd") : System.getenv("STORE_PWD"),
+
+            lspushServerUrl : isExists ? properties.getProperty("lspush.serverUrl") : System.getenv("LSPUSH_SERVER_URL"),
+            lspushPublicKey : isExists ? properties.getProperty("lspush.publicKey") : System.getenv("LSPUSH_PUBLIC_KEY"),
+
+            buglyAppVersion : "1.0",
+            buglyEnableDebug: false,
+            buglyAppId      : isExists ? properties.getProperty("bugly.appId") : System.getenv("BUGLY_APPID"),
+            buglyAppKey     : isExists ? properties.getProperty("bugly.appKey") : System.getenv("BUGLY_APPKEY"),
+
+            mobSMSId        : isExists ? properties.getProperty("mob.sms.id") : System.getenv("MOB_SMS_ID"),
+            mobSMSKey       : isExists ? properties.getProperty("mob.sms.key") : System.getenv("MOB_SMS_KEY"),
+
+            jaqKey          : isExists ? properties.getProperty("jaq.key") : System.getenv("JAQ_KEY"),
+
+            bintrayUser : isExists ? properties.getProperty("bintray.user") : System.getenv("BINTRAY_USER"),
+            bintrayApiKey: isExists ? properties.getProperty("bintray.apiKey") : System.getenv("BINTRAY_API_KEY"),
+    ]
+
+}

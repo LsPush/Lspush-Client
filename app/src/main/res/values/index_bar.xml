@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="index_bar_textSize">14sp</dimen>
+    <dimen name="index_bar_verticalSpacing">1dp</dimen>
+    <dimen name="index_bar_horizontalPadding">4dp</dimen>
+    <dimen name="index_bar_verticalPadding">4dp</dimen>
+
+    <color name="index_bar_textColor">#ff737373</color>
+    <color name="index_bar_background_pressed">#40000000</color>
+    <color name="index_bar_background_normal">@android:color/transparent</color>
+
+    <style name="IndexBar">
+        <item name="android:textSize">@dimen/index_bar_textSize</item>
+        <item name="android:textColor">@color/index_bar_textColor</item>
+
+        <item name="android:background">@drawable/index_bar_background</item>
+        <item name="android:paddingLeft">@dimen/index_bar_horizontalPadding</item>
+        <item name="android:paddingRight">@dimen/index_bar_horizontalPadding</item>
+        <item name="android:paddingTop">@dimen/index_bar_verticalPadding</item>
+        <item name="android:paddingBottom">@dimen/index_bar_verticalPadding</item>
+        <item name="android:verticalSpacing">@dimen/index_bar_verticalSpacing</item>
+    </style>
+
+    <declare-styleable name="IndexBar">
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="index_search" format="reference" />
+
+        <attr name="android:background" />
+        <attr name="android:paddingLeft" />
+        <attr name="android:paddingRight" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingBottom" />
+        <attr name="android:verticalSpacing" />
+    </declare-styleable>
+
+</resources>

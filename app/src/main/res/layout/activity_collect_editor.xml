@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/network_url"
+            android:textColor="@color/blue_5_whiteout"
+            android:textColorHint="@color/blue_5_whiteout"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.tomeokin.lspush.widget.ClearEditText
+                    android:id="@+id/collect_url_et"
+                    style="@style/ClearEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/http_hint"
+                    android:inputType="textMultiLine|textUri"
+                    android:maxLines="3"
+                    android:minHeight="38dp"
+                    android:padding="8dp"
+                    android:scrollbars="vertical"
+                    tools:hint="https://github.com/wangwang4git/just-do/blob/197bc5ad559343643f04fb86708925fdbe1d3300/AndroidLeak/%E6%89%8BQ%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9D%97.md" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginRight="8dp"
+                    android:background="@color/grey_87" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/check_url_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:padding="8dp"
+                android:text="@string/check_url"
+                android:textColor="@color/submit_button_text_light"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:text="@string/collect_title"
+            android:textColor="@color/blue_5_whiteout"
+            android:textColorHint="@color/blue_5_whiteout"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical"
+            tools:visibility="gone">
+
+            <com.tomeokin.lspush.widget.ClearEditText
+                android:id="@+id/collect_title_et"
+                style="@style/ClearEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:focusable="true"
+                android:inputType="textMultiLine"
+                android:maxLength="100"
+                android:maxLines="3"
+                android:minHeight="38dp"
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                tools:hint="手Q中的内存泄漏检测模块" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginRight="8dp"
+                android:background="@color/grey_87" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:text="@string/description"
+            android:textColor="@color/blue_5_whiteout"
+            android:textColorHint="@color/blue_5_whiteout"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical"
+            tools:visibility="gone">
+
+            <com.tomeokin.lspush.widget.ClearEditText
+                android:id="@+id/collect_desc_et"
+                style="@style/ClearEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:inputType="textMultiLine"
+                android:maxLength="150"
+                android:maxLines="5"
+                android:minHeight="38dp"
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                tools:hint="In Android, a layout is composed from a hierarchy of views. Each view has a parent (up until the root view) and a ViewGroup can have child views. When a layout gets inflated at runtime, the framewo..." />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginRight="8dp"
+                android:background="@color/grey_87" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:text="@string/description_image"
+            android:textColor="@color/blue_5_whiteout"
+            android:textColorHint="@color/blue_5_whiteout"
+            android:textSize="14sp" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/collect_add_image_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:adjustViewBounds="true"
+                android:maxHeight="160dp"
+                android:padding="8dp"
+                android:src="@drawable/add_image"
+                android:visibility="visible"
+                tools:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/collect_image_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:adjustViewBounds="true"
+                android:maxHeight="160dp"
+                android:minHeight="100dp"
+                android:padding="8dp"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                tools:src="@drawable/scrollable_regions_within_android_app"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/delete_image"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="right|top"
+                android:background="@color/white"
+                android:src="@drawable/clear_active" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:text="@string/tag"
+            android:textColor="@color/blue_5_whiteout"
+            android:textColorHint="@color/blue_5_whiteout"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.tomeokin.lspush.widget.ClearEditText
+                    android:id="@+id/collect_tag_et"
+                    style="@style/ClearEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="38dp"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/add_tag_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:enabled="true"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:padding="8dp"
+                    android:text="@string/add"
+                    android:textColor="@color/submit_button_text_light"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginRight="8dp"
+                android:background="@color/grey_87" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/tag_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="4dp"
+            tools:layout_height="45dp"
+            tools:listitem="@layout/tools_item_tag"
+            tools:orientation="horizontal" />
+
+    </LinearLayout>
+
+</ScrollView>

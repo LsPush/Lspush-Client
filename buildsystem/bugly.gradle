@@ -1,0 +1,9 @@
+apply plugin: 'bugly'
+
+def metadata = project.rootProject.ext.metadata
+
+// release 时自动上传符号表 https://bugly.qq.com/androidsymbol
+bugly {
+    appId = metadata.buglyAppId
+    appKey = metadata.buglyAppKey
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/notification_bar" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<ImageButton-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@null"-->
+    <!--android:padding="8dp"-->
+    <!--android:src="@drawable/close" />-->
+
+    <!--<android.support.design.widget.AppBarLayout-->
+    <!--android:id="@+id/appBar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@color/transparent"-->
+    <!--android:theme="@style/AppTheme.AppBarOverlay">-->
+
+    <!--<android.support.v7.widget.Toolbar-->
+    <!--android:id="@+id/toolbar"-->
+    <!--style="@style/AppTheme.AppBarOverlay"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="?attr/actionBarSize"-->
+    <!--app:navigationIcon="@drawable/close">-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/toolbar_title"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:padding="8dp"-->
+    <!--android:textColor="@color/titleTextColor"-->
+    <!--android:textSize="@dimen/titleTextSize"-->
+    <!--tools:text="注册" />-->
+
+    <!--</android.support.v7.widget.Toolbar>-->
+
+    <!--&lt;!&ndash; similar with z-axis 1dp &ndash;&gt;-->
+    <!--&lt;!&ndash;<View&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/toolbar_divider"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="1dp"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:background="@color/grey_87" />&ndash;&gt;-->
+
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+</FrameLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_copy_current_link"
+        android:icon="@drawable/action_copy_url"
+        android:title="复制当前页面网址"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_share"
+        android:icon="@drawable/action_share"
+        android:title="分享当前页面"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_open_in_browser"
+        android:icon="@drawable/action_browser"
+        android:title="在浏览器中打开"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_see_share_user"
+        android:icon="@drawable/user"
+        android:title="查看分享者主页"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_refresh"
+        android:icon="@drawable/action_refresh"
+        android:title="刷新"
+        app:showAsAction="never" />
+
+</menu>

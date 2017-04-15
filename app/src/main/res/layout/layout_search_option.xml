@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="80dp"
+        android:padding="8dp"
+        android:text="搜索指定内容"
+        android:textColor="@color/grey_50"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/option_title_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="标题"
+            android:textColor="@color/submit_button_text_light"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/option_tag_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="标签"
+            android:textColor="@color/submit_button_text_light"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/option_url_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="网址"
+            android:textColor="@color/submit_button_text_light"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/option_group_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginTop="16dp">
+
+        <com.tomeokin.lspush.widget.BetterRadioButton
+            android:id="@+id/option_group_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowRadius="0"
+            android:background="@android:color/transparent"
+            android:checked="true"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:text="在全部里面搜索"
+            android:textColor="@color/submit_button_text_light"
+            android:textSize="16sp"
+            app:buttonTint="@color/blue_5_whiteout" />
+
+        <com.tomeokin.lspush.widget.BetterRadioButton
+            android:id="@+id/option_group_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowRadius="0"
+            android:background="@android:color/transparent"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:text="仅搜索我的分享"
+            android:textColor="@color/submit_button_text_light"
+            android:textSize="16sp"
+            app:buttonTint="@color/blue_5_whiteout" />
+
+        <com.tomeokin.lspush.widget.BetterRadioButton
+            android:id="@+id/option_group_userFavor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:shadowRadius="0"
+            android:background="@android:color/transparent"
+            android:drawablePadding="8dp"
+            android:padding="8dp"
+            android:text="仅搜索我的收藏"
+            android:textColor="@color/submit_button_text_light"
+            android:textSize="16sp"
+            app:buttonTint="@color/blue_5_whiteout" />
+
+    </RadioGroup>
+
+</LinearLayout>

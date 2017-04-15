@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="@color/blue_grey_98" />
+
+    <include layout="@layout/layout_divider" />
+
+    <TextView
+        android:id="@+id/account_manage_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:onClick="onAccountManageClick"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:text="用户信息管理"
+        android:textColor="@color/grey_21"
+        android:textSize="16sp" />
+
+    <include layout="@layout/layout_divider" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="@color/blue_grey_98" />
+
+    <include layout="@layout/layout_divider" />
+
+    <TextView
+        android:id="@+id/app_about_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:onClick="onAppAboutClick"
+        android:paddingBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:text="关于"
+        android:textColor="@color/grey_21"
+        android:textSize="16sp" />
+
+    <include layout="@layout/layout_divider" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/blue_grey_98" />
+
+</LinearLayout>

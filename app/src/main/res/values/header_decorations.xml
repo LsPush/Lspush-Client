@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_decoration_textSize">14sp</dimen>
+    <dimen name="header_decoration_horizontalSpacing">8dp</dimen>
+    <dimen name="header_decoration_verticalSpacing">4dp</dimen>
+
+    <color name="header_decoration_background">#ffefefef</color>
+    <color name="header_decoration_textColor">#ff999999</color>
+
+    <style name="StickyHeaderDecoration">
+        <item name="android:textSize">@dimen/header_decoration_textSize</item>
+        <item name="android:textColor">@color/header_decoration_textColor</item>
+        <item name="android:background">@color/header_decoration_background</item>
+        <item name="android:horizontalSpacing">@dimen/header_decoration_horizontalSpacing</item>
+        <item name="android:verticalSpacing">@dimen/header_decoration_verticalSpacing</item>
+    </style>
+
+    <declare-styleable name="StickyHeaderDecoration">
+        <attr name="android:textSize" />
+        <attr name="android:textColor" />
+        <attr name="android:background" />
+        <attr name="android:horizontalSpacing" />
+        <attr name="android:verticalSpacing" />
+    </declare-styleable>
+
+</resources>

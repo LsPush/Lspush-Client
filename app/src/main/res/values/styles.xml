@@ -1,0 +1,112 @@
+<resources>
+
+    <color name="colorPrimary">@color/grey_98</color>
+    <color name="colorPrimaryDark">@color/grey_95</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorControlNormal">@color/grey_21</color>
+    <color name="statusBarColor">@color/grey_90</color>
+    <color name="titleTextColor">@color/colorControlNormal</color>
+    <color name="popupBackground">@color/white</color>
+
+    <dimen name="titleTextSize">20sp</dimen>
+    <dimen name="SubtitleTextSize">14sp</dimen>
+    <dimen name="toolbar_elevation">0dp</dimen>
+    <dimen name="popup_elevation">4dp</dimen>
+
+    <style name="Base.Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="toolbarStyle">@style/AppTheme.AppBarOverlay</item>
+        <item name="toolbarNavigationButtonStyle">@style/AppTheme.ToolbarNavigationButton</item>
+        <!--<item name="actionOverflowButtonStyle">@style/Widget.AppCompat.ActionButton.Overflow</item>-->
+        <!--<item name="actionOverflowMenuStyle">@style/Widget.AppCompat.PopupMenu.Overflow</item>-->
+
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <style name="AppTheme" parent="Base.Theme" />
+
+    <style name="BackAppTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/BackAnimationActivity</item>
+    </style>
+
+    <style name="BackAnimationActivity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/hold</item>
+        <item name="android:activityCloseEnterAnimation">@anim/hold</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <style name="ZoomPopTheme" parent="AppTheme">
+        <item name="android:windowAnimationStyle">@style/ZoomPopAnimationActivity</item>
+    </style>
+
+    <style name="ZoomPopAnimationActivity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/zoom_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/hold</item>
+        <item name="android:activityCloseEnterAnimation">@anim/hold</item>
+        <!--<item name="android:activityCloseExitAnimation">@anim/zoom_out</item>-->
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <style name="PopAppTheme" parent="AppTheme">
+        <!--<item name="android:windowAnimationStyle">@style/PopAnimationActivity</item>-->
+        <item name="android:activityOpenEnterAnimation">@anim/slide_bottom_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/hold</item>
+        <item name="android:activityCloseEnterAnimation">@anim/hold</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_bottom_out</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+
+        <item name="android:theme">@style/AppTheme.AppBarOverlay</item>
+        <item name="popupTheme">@style/AppTheme.PopupOverlay</item>
+        <item name="titleTextAppearance">@style/ToolbarTextAppearance.Title</item>
+        <item name="subtitleTextAppearance">@style/ToolbarTextAppearance.Subtitle</item>
+
+        <item name="android:homeAsUpIndicator">@drawable/arrow_left</item>
+        <item name="navigationIcon">@drawable/arrow_left</item>
+
+        <item name="android:gravity">center_vertical</item>
+
+        <item name="elevation">@dimen/toolbar_elevation</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay.NoHomeAsUp">
+        <item name="android:homeAsUpIndicator">@null</item>
+        <item name="navigationIcon">@null</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorBackground">@color/popupBackground</item>
+        <item name="colorAccent">@color/colorControlNormal</item>
+        <item name="colorControlNormal">@color/popupBackground</item>
+    </style>
+
+    <style name="AppTheme.ToolbarNavigationButton" parent="@style/Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="android:background">@drawable/selected_item_background</item>
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+    </style>
+
+    <style name="ToolbarTextAppearance">
+        <item name="android:textColor">@color/colorControlNormal</item>
+    </style>
+
+    <!-- parent="TextAppearance.Widget.AppCompat.Toolbar.Title"-->
+    <style name="ToolbarTextAppearance.Title">
+        <item name="android:textSize">@dimen/titleTextSize</item>
+    </style>
+
+    <!--parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle"-->
+    <style name="ToolbarTextAppearance.Subtitle">
+        <item name="android:textSize">@dimen/SubtitleTextSize</item>
+    </style>
+
+</resources>

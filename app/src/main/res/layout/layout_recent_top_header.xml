@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="@color/blue_grey_98" />
+
+    <include layout="@layout/layout_divider" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="最近热门"
+            android:textColor="@color/colorControlNormal"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/days_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:layout_marginRight="8dp"
+            android:background="?selectableItemBackground"
+            android:drawableLeft="@drawable/setting"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:textAlignment="gravity"
+            android:textColor="@color/blue_gray_50"
+            android:textSize="14sp"
+            tools:text="6天内" />
+
+    </FrameLayout>
+
+</LinearLayout>

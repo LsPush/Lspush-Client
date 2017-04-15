@@ -1,0 +1,89 @@
+<resources>
+    <string name="action_search">Search</string>
+    <string name="action_add">Add</string>
+    <string name="search">Search</string>
+    <string name="cancel">Cancel</string>
+    <string name="select_country">Select Country/Area</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="input_phone">Please Input Your Phone</string>
+    <string name="phone">Phone</string>
+    <string name="sms_captcha">SMS Captcha</string>
+    <string name="obtain_captcha">Obtain Captcha</string>
+    <string name="submit_next">Continue</string>
+    <string name="submit_login">Login</string>
+    <string name="submit_register">Register</string>
+    <string name="password">Password</string>
+    <string name="user_name">User Name</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="select_image_title">Select One Photo</string>
+    <string name="select_image_from">Select Image Channel</string>
+    <string name="read_image_failed">Read Image Failed</string>
+    <string name="select_file_not_image">Selected File is Not Image</string>
+    <string name="pick_image_rationale">This app need permission to access your image.</string>
+    <string name="take_photo_rationale">This app need permission to take a photo.</string>
+    <string name="settings_dialog_title">Permissions Required</string>
+    <string name="rationale_ask_again">This app may not work correctly without the requested permissions. Open the app settings screen to modify app permissions.</string>
+    <string name="setting">Settings</string>
+    <string name="no_suitable_camera">No Found Any Suitable Camera.</string>
+    <string name="could_not_access_image">Can\'t access image.</string>
+    <string name="not_support_character">Not support character %c.</string>
+    <string name="using_existing_account_to_login">Using Existing Account to login</string>
+    <string name="register_new_account">Register New Account</string>
+    <string name="network_offline">No Network, Please Check Network Settings</string>
+    <string name="main_home">Home</string>
+    <string name="footer_no_more">No More Data</string>
+    <string name="footer_loading_more">Loading</string>
+    <string name="footer_load_more_failed">Load More Failed, Click to Retry</string>
+    <string name="comment_hint">Comment</string>
+    <string name="send_btn">Send</string>
+    <string name="no_comment">No More Comment</string>
+    <string name="add_collect_from_url">Add from url</string>
+    <string name="create_new_collect">New Collection</string>
+    <string name="edit_collect_title">Edit Collection</string>
+    <string name="check_url">Check</string>
+    <string name="network_url">Network Url</string>
+    <string name="http_hint">http://</string>
+    <string name="description">Description</string>
+    <string name="description_image">Description Image</string>
+    <string name="tag">Tag</string>
+    <string name="add">Add</string>
+    <string name="collect_title">Title</string>
+    <string name="read_phone_state_rationale">This app need permission to read phone id.</string>
+    <string name="using_current_image">Using current image?</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="web_image_click" translatable="false">
+    <![CDATA[
+        javascript: (function() {
+            var obj=document.elementFromPoint(%1$f, %2$f);
+            if (obj.src!=null && obj.tagName==\'IMG\') {
+                window.imageClick.onImageClick(obj.src, obj.width, obj.height);
+            }
+        })()
+    ]]>
+    </string>
+    <string name="put_qrcode_into_frame">Put QR-Code into frame, it will auto scan.</string>
+    <string name="close_flash">Close Flash</string>
+    <string name="open_flash">Open Flash</string>
+    <string name="take_from_qrcode">Take from QR-Code</string>
+    <string name="scan_qrcode">Scan QR-Code</string>
+    <string name="following">Following</string>
+    <string name="followers">Followers</string>
+    <string name="follow">Follow</string>
+    <string name="collect_hot_share">Hot Share</string>
+    <string name="share_desc">Share</string>
+    <string name="favor_desc">Favor</string>
+    <string name="no_description">No description</string>
+    <string name="had_followed">Following</string>
+    <string name="follow_user">Follow</string>
+    <string name="user_page">User Home</string>
+    <string name="collect_count_desc">Collect count %d</string>
+    <string name="comment_count_desc">Comment count %d</string>
+    <string name="main_find">Find</string>
+    <string name="main_me">Me</string>
+    <string name="app_setting">Setting</string>
+    <string name="search_collect_bottom_note">%1$d collects · %2$d comments · %3$s · %4$s</string>
+
+</resources>

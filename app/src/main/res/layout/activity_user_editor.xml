@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/user_avatar_iv"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:padding="8dp"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/user" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:padding="8dp"
+        android:text="用户名："
+        android:textColor="@color/colorControlNormal"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/username_et"
+        style="@style/ClearEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_background"
+        android:drawableRight="@null"
+        android:gravity="left"
+        android:inputType="text"
+        android:maxLength="20"
+        android:maxLines="1"
+        tools:text="abc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:text="用户描述："
+        android:textColor="@color/colorControlNormal"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/user_desc_et"
+        style="@style/ClearEditTextMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/edittext_background"
+        android:drawableRight="@null"
+        android:gravity="left"
+        android:inputType="textMultiLine"
+        android:maxLength="200"
+        tools:text="修改用户信息。。。。" />
+
+</LinearLayout>

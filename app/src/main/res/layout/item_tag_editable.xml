@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tomeokin.lspush.widget.DeleteTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tag_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/tag_background"
+    android:drawablePadding="8dp"
+    android:drawableRight="@drawable/clear"
+    android:gravity="center_vertical"
+    android:padding="8dp"
+    android:textAlignment="gravity"
+    android:textColor="@color/blue_gray_50"
+    tools:text="Material Design" />

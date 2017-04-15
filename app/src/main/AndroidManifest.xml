@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.tomeokin.lspush">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <application
+        android:name=".module.app.App"
+        android:allowBackup="false"
+        android:icon="@mipmap/paper"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/paper"
+        android:supportsRtl="true"
+        android:theme="@style/BackAppTheme"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:allowBackup">
+
+        <meta-data
+            android:name="com.decay.glide.GlideConfiguration"
+            android:value="GlideModule" />
+
+        <activity
+            android:name=".module.splash.com.SplashActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreenAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".module.auth.com.AuthActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:label="@string/register"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <activity
+            android:name=".module.auth.com.CountryActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:label="@string/select_country"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.AppCompat"
+            android:windowSoftInputMode="stateUnspecified|adjustPan" />
+        <activity
+            android:name=".module.main.com.MainActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+        <activity
+            android:name=".module.main.com.CollectWebViewActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+        <activity
+            android:name=".module.main.com.CollectEditorActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+        <activity
+            android:name=".module.main.com.ImageTargetActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+        <activity
+            android:name=".module.main.com.ZxingActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name=".module.user.com.UserActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+        <activity
+            android:name=".module.user.com.UserCollectActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+        <activity
+            android:name=".module.setting.com.SettingActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+        <activity
+            android:name=".module.search.com.SearchActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/ZoomPopTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+        <activity
+            android:name=".module.setting.com.AboutActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+        <activity
+            android:name=".module.setting.com.UserEditorActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+        <activity
+            android:name=".module.user.com.UserFollowActivity"
+            android:configChanges="locale|keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/BackAppTheme"
+            android:windowSoftInputMode="stateUnspecified|adjustPan">
+        </activity>
+    </application>
+
+</manifest>

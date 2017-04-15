@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">@android:color/transparent</color>
+
+    <color name="white">@android:color/white</color>
+    <color name="white_95_transparent">#f2ffffff</color>
+    <color name="white_97_transparent">#f7ffffff</color>
+
+    <color name="grey_15">#ff262626</color>
+    <color name="grey_20">#ff333333</color>
+    <color name="grey_21">#ff363636</color>
+    <color name="grey_50">#ff737373</color>
+    <color name="grey_60">#ff999999</color>
+    <color name="grey_70">#ffb2b2b2</color>
+    <color name="grey_75">#ffbfbfbf</color>
+    <color name="grey_80">#ffcccccc</color>
+    <color name="grey_86">#ffdbdbdb</color>
+    <color name="grey_87">#ffdedede</color>
+    <color name="grey_90">#ffe6e6e6</color>
+    <color name="grey_93">#ffededed</color>
+    <color name="grey_95">#fff2f2f2</color>
+    <color name="grey_97">#fff7f7f7</color>
+    <color name="grey_98">#fffafafa</color>
+
+    <color name="blue_gray_30">#ffa5a7aa</color>
+    <color name="blue_gray_50">#ff4b4f54</color>
+    <color name="blue_grey_70">#ff25272a</color>
+    <color name="blue_grey_98">#fff8f9fb</color>
+
+    <color name="light_blue_5">#ff0099FF</color>
+    <color name="light_blue_6">#ff0084FF</color>
+
+    <color name="blue_4_whiteout">#ff5eb1ff</color>
+    <color name="blue_5_whiteout">#ff3897f0</color>
+    <color name="blue_6_whiteout">#ff1372cc</color>
+
+    <color name="grey_25_80_transparent">#40cdcdcd</color>
+
+    <color name="green_5">#ff66bd2b</color>
+
+</resources>

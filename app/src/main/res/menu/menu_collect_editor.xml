@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_qr"
+        android:icon="@drawable/qrcode"
+        android:title="@string/take_from_qrcode"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_submit"
+        android:icon="@drawable/action_ok"
+        android:title="@string/action_search"
+        app:showAsAction="always" />
+</menu>

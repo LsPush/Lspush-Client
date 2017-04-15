@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_window_focused="false" android:drawable="@color/transparent" />
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="@color/grey_25_80_transparent" />
+        </shape>
+    </item>
+    <item android:drawable="@color/transparent" />
+</selector>

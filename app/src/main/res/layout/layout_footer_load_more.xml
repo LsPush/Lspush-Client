@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/load_more_container"
+        layout="@layout/layout_footer_loading_more" />
+
+    <include
+        android:id="@+id/load_more_failed_container"
+        layout="@layout/layout_footer_load_more_failed"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/no_more_container"
+        layout="@layout/layout_footer_no_more"
+        android:visibility="gone" />
+
+</FrameLayout>

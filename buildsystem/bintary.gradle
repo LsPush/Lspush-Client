@@ -1,0 +1,98 @@
+
+if (!rootProject.ext.bintaryUpload) return;
+
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+def metadata = rootProject.ext.metadata
+
+group = GROUP_ID
+version = project.android.defaultConfig.versionName
+
+install {
+    // This generates POM.xml with proper parameters
+    repositories.mavenInstaller {
+        pom.project {
+            name PKG_NAMR
+            description PKG_DESC
+            url WEBSITE_URL
+
+            packaging 'aar'
+            groupId GROUP_ID
+            artifactId ARTIFACT_ID
+            version project.android.defaultConfig.versionName
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+            scm {
+                connection VCS_URL
+                url WEBSITE_URL
+            }
+            developers {
+                developer {
+                    name DEVELOPER_NAME
+                }
+            }
+        }
+    }
+}
+
+bintray {
+    user = metadata.bintrayUser
+    key = metadata.bintrayApiKey
+    configurations = ['archives']
+    pkg {
+        repo = PKG_NAMR
+        name = PKG_NAMR
+        version {
+            name = project.android.defaultConfig.versionName
+            desc = PKG_DESC
+            vcsTag = name
+        }
+        websiteUrl = WEBSITE_URL
+        vcsUrl = VCS_URL
+        licenses = ["Apache-2.0"]
+        publish = true
+        override = false
+    }
+}
+
+task sourcesJar(type: Jar) {
+    group = "publishing"
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+task javadoc(type: Javadoc) {
+    group = "publishing"
+    source = android.sourceSets.main.java.srcDirs
+    classpath += configurations.compile
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    options {
+        header = project.description
+        links = ["http://docs.oracle.com/javase/8/docs/api/", "http://docs.oracle.com/javase/7/docs/api/"]
+        linksOffline "http://d.android.com/reference","${android.sdkDirectory}/docs/reference"
+        encoding = "utf-8"
+        docEncoding = "utf-8"
+        charSet = "utf-8"
+    }
+    exclude '**/BuildConfig.java'
+    exclude '**/R.java'
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    group = "publishing"
+    classifier = 'javadoc'
+    //from javadoc.destinationDir
+    from "build/docs/javadoc"
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
