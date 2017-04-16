@@ -113,9 +113,9 @@ dependencies {
     // 阿里聚安全安全存储
     compile(name: 'SecurityGuardSDK-external-release-5.3.38', ext: 'aar')
     // mob sms-sdk
-    compile(name: 'SMSSDK-2.1.3', ext: 'aar')
+    compile(name: 'SMSSDK-2.1.4', ext: 'aar')
     // 腾讯 X5 内核
-    compile files('libs/tbs_sdk_thirdapp_v3.0.0.1038_43000_sharewithdownload_obfs_20170110_144724.jar')
+    compile files('libs/tbs_sdk_thirdapp_v3.1.0.1034_43100_sharewithdownload_obfs_20170301_182143.jar')
 
     // retrofit, okhttp, gson, rxjava, stetho
     compile("com.squareup.retrofit2:retrofit:${RETROFIT2_VERSION}", "com.squareup.okhttp3:okhttp:${OKHTTP_VERSION}")
@@ -128,7 +128,7 @@ dependencies {
     compile("com.squareup.okhttp3:logging-interceptor:${OKHTTP_VERSION}")
 
     compile("com.github.bumptech.glide:glide:3.7.0", "com.github.bumptech.glide:okhttp3-integration:1.4.0@aar")
-    compile("com.theartofdev.edmodo:android-image-cropper:2.3.1")
+    compile("com.theartofdev.edmodo:android-image-cropper:2.4.0")
 
     compile('com.android.support.constraint:constraint-layout:1.0.2')
     compile('com.jaeger.statusbaruitl:library:1.3.6')

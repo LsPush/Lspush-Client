@@ -96,6 +96,8 @@ public class ImageTargetActivity extends WebViewActivity
             }
         };
 
+        x5WebView.setPadding(x5WebView.getPaddingLeft(), x5WebView.getPaddingTop(), x5WebView.getPaddingRight(), 0);
+
         x5WebView.setWebViewClient(new WebViewClient() {
             /**
              * 防止加载网页时调起系统浏览器
