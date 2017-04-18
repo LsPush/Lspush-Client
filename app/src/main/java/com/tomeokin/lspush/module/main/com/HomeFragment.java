@@ -101,7 +101,7 @@ public class HomeFragment extends NavFragment implements NewestAdapter.OnItemCli
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                refreshCollectList();
+                refreshCollectList(false);
             }
         });
         listRv = (RecyclerView) view.findViewById(R.id.newest_rv);
@@ -137,9 +137,16 @@ public class HomeFragment extends NavFragment implements NewestAdapter.OnItemCli
         listRv.setAdapter(sectionAdapter);
 
         subscribeCollectSubject();
-        refreshCollectList();
+        showCollects();
 
         return view;
+    }
+
+    public void showCollects() {
+        List<Collect> collectList = newestAdapter.getCollectList();
+        if (collectList == null || collectList.size() == 0) {
+            refreshCollectList(true);
+        }
     }
 
     public void notifyRvDataSetChanged() {
@@ -151,9 +158,9 @@ public class HomeFragment extends NavFragment implements NewestAdapter.OnItemCli
         });
     }
 
-    public void refreshCollectList() {
+    public void refreshCollectList(boolean showProgress) {
         endlessScrollListener.setEnabled(false);
-        homePresenter.getNewestCollect(0, PAGE_COUNT, new RxRequestAdapter<List<Collect>>(context(), false) {
+        homePresenter.getNewestCollect(0, PAGE_COUNT, new RxRequestAdapter<List<Collect>>(context(), showProgress) {
             @Override
             public void onRequestSuccess(List<Collect> data) {
                 publishCollectList(true, data);
@@ -179,7 +186,7 @@ public class HomeFragment extends NavFragment implements NewestAdapter.OnItemCli
             public void onRequestFailed(@Nullable Throwable t, @Nullable String message) {
                 super.onRequestFailed(t, message);
                 loadMoreFooter.setState(LoadMoreFooter.STATE_ERROR);
-                sectionAdapter.notifyDataSetChanged();
+                notifyRvDataSetChanged();
             }
         });
     }
@@ -188,11 +195,11 @@ public class HomeFragment extends NavFragment implements NewestAdapter.OnItemCli
         if (collectList.size() < PAGE_COUNT) {
             endlessScrollListener.setEnabled(false);
             loadMoreFooter.setState(LoadMoreFooter.STATE_NO_MORE);
-            sectionAdapter.notifyDataSetChanged();
+            notifyRvDataSetChanged();
         } else {
             endlessScrollListener.setEnabled(true);
             loadMoreFooter.setState(LoadMoreFooter.STATE_HIDE);
-            sectionAdapter.notifyDataSetChanged();
+            notifyRvDataSetChanged();
         }
 
         if (update) {
@@ -222,6 +229,7 @@ public class HomeFragment extends NavFragment implements NewestAdapter.OnItemCli
                 @Override
                 public void call(List<Collect> collects) {
                     newestAdapter.setCollectList(collects);
+                    notifyRvDataSetChanged();
             }});
         // @formatter:on
     }

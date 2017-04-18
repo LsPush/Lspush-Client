@@ -93,7 +93,7 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                refreshHotCollects();
+                refreshHotCollects(false);
             }
         });
         hotRv = (RecyclerView) view.findViewById(R.id.col_hot_rv);
@@ -144,7 +144,7 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
             public void onLoadMoreClick(LoadMoreFooter footer, int state) {
                 if (state == LoadMoreFooter.STATE_ERROR) {
                     footer.setState(LoadMoreFooter.STATE_LOADING);
-                    sectionAdapter.notifyDataSetChanged();
+                    notifyRvDataSetChanged();
                 }
             }
         });
@@ -153,9 +153,16 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
         hotRv.setAdapter(sectionAdapter);
 
         subscribeCollectSubject();
-        refreshHotCollects();
+        showCollects();
 
         return view;
+    }
+
+    public void showCollects() {
+        List<Collect> collectList = hotColAdapter.getCollectList();
+        if (collectList == null || collectList.size() == 0) {
+            refreshHotCollects(true);
+        }
     }
 
     public void showDaysSelectorDialog() {
@@ -179,9 +186,9 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
         });
     }
 
-    public void refreshHotCollects() {
+    public void refreshHotCollects(boolean showProgress) {
         refreshRecentTopList(false);
-        refreshCollectList();
+        refreshCollectList(showProgress);
     }
 
     public void refreshRecentTopList(boolean showProgress) {
@@ -195,7 +202,7 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
                     if (recentTopColAdapter.getCollectList().size() == 0) {
                         recentTopFooter.setShowingNoMore(true);
                     }
-                    sectionAdapter.notifyDataSetChanged();
+                    notifyRvDataSetChanged();
                 }
 
                 @Override
@@ -205,9 +212,9 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
             });
     }
 
-    public void refreshCollectList() {
+    public void refreshCollectList(boolean showProgress) {
         endlessScrollListener.setEnabled(false);
-        homePresenter.findHotCollects(0, PAGE_COUNT, new RxRequestAdapter<List<Collect>>(context(), false) {
+        homePresenter.findHotCollects(0, PAGE_COUNT, new RxRequestAdapter<List<Collect>>(context(), showProgress) {
             @Override
             public void onRequestSuccess(List<Collect> data) {
                 publishCollectList(true, data);
@@ -233,7 +240,7 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
             public void onRequestFailed(@Nullable Throwable t, @Nullable String message) {
                 super.onRequestFailed(t, message);
                 loadMoreFooter.setState(LoadMoreFooter.STATE_ERROR);
-                sectionAdapter.notifyDataSetChanged();
+                notifyRvDataSetChanged();
             }
         });
     }
@@ -242,11 +249,11 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
         if (collectList.size() < PAGE_COUNT) {
             endlessScrollListener.setEnabled(false);
             loadMoreFooter.setState(LoadMoreFooter.STATE_NO_MORE);
-            sectionAdapter.notifyDataSetChanged();
+            notifyRvDataSetChanged();
         } else {
             endlessScrollListener.setEnabled(true);
             loadMoreFooter.setState(LoadMoreFooter.STATE_HIDE);
-            sectionAdapter.notifyDataSetChanged();
+            notifyRvDataSetChanged();
         }
 
         if (update) {
@@ -276,6 +283,7 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
                 @Override
                 public void call(List<Collect> collects) {
                     hotColAdapter.setCollectList(collects);
+                    notifyRvDataSetChanged();
             }});
         // @formatter:on
     }

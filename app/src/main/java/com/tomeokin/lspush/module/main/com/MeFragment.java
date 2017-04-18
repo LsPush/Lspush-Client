@@ -100,6 +100,15 @@ public class MeFragment extends NavFragment {
         userInfoLayout.setOnClickListener(onUserClickListener);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (getUserVisibleHint()) {
+            user = currentUser.getCurrentUser();
+            setupUserView();
+        }
+    }
+
     public void onUserClick() {
         navUtils.startActivity(UserActivity.class, UserActivity.create(prefer, user));
     }

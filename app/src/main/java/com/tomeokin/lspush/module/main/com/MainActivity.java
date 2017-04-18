@@ -132,6 +132,7 @@ public class MainActivity extends NavActivity implements ProvideComponent<MainCo
         MainPageAdapter pageAdapter = new MainPageAdapter(context(), getSupportFragmentManager());
         viewPager.setAdapter(pageAdapter);
         viewPager.setPageScrollEnabled(false);
+        viewPager.setOffscreenPageLimit(2);
 
         tabs = new ImageView[] { homeBtn, findBtn, meBtn };
         selectedTab = View.NO_ID;

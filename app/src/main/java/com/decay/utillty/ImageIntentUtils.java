@@ -128,14 +128,14 @@ public class ImageIntentUtils {
     /**
      * Get the extension of a file name, like ".png" or ".jpg".
      *
-     * @return Extension including the dot("."); "" if there is no extension; null if filename was null.
+     * @return Extension including the dot('.'); "" if there is no extension; null if filename was null.
      */
     public static String getExtension(String filename) {
         if (filename == null) {
             return null;
         }
 
-        int dot = filename.lastIndexOf(".");
+        int dot = filename.lastIndexOf('.');
         if (dot >= 0) {
             return filename.substring(dot);
         } else {
