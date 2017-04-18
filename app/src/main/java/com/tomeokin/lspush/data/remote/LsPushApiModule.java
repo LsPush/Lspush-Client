@@ -62,9 +62,9 @@ public class LsPushApiModule {
             //builder.addNetworkInterceptor(new StethoInterceptor());
         }
 
-        builder.connectTimeout(10, TimeUnit.SECONDS)
-            .writeTimeout(10, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
+        builder.connectTimeout(15, TimeUnit.SECONDS)
+            .writeTimeout(15, TimeUnit.SECONDS)
+            .readTimeout(35, TimeUnit.SECONDS)
             .addInterceptor(authInterceptor(currentUser))
             //.addInterceptor(provideOfflineCacheInterceptor())
             //.addNetworkInterceptor(provideCacheInterceptor())

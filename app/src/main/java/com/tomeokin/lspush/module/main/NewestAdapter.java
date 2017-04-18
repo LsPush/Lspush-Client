@@ -29,7 +29,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.decay.glide.CircleTransform;
 import com.decay.utillty.DateUtils;
 import com.tomeokin.lspush.R;
@@ -211,7 +210,8 @@ public class NewestAdapter extends RecyclerView.Adapter<NewestAdapter.NewestHold
                     .load(collect.getImage())
                     .error(R.drawable.loading_failed)
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                    .into(new GlideDrawableImageViewTarget(collectImage, 1));
+                    .into(collectImage);
+                // new GlideDrawableImageViewTarget(collectImage, 1)
             }
 
             tagAdapter.setGroup(position);

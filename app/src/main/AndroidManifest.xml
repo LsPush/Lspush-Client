@@ -38,6 +38,9 @@
         <meta-data
             android:name="com.decay.glide.GlideConfiguration"
             android:value="GlideModule" />
+        <meta-data
+            android:name="com.decay.glide.OkHttpGlideModule"
+            android:value="GlideModule" />
 
         <activity
             android:name=".module.splash.com.SplashActivity"
