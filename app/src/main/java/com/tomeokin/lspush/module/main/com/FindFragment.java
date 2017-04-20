@@ -62,19 +62,19 @@ import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 
 public class FindFragment extends NavFragment implements UserCollectAdapter.OnCollectClickListener {
-    private final Log log = AppLogger.of("UserCollectActivity");
+    private final Log log = AppLogger.of("FindFragment");
 
     public static final int REQUEST_OPEN_COLLECT = 189;
 
     SwipeRefreshLayout swipeRefreshLayout;
     RecyclerView hotRv;
-    SectionAdapter sectionAdapter;
-    LoadMoreFooter loadMoreFooter;
     HotAdapter hotAdapter;
+
     RecentTopSection recentTopSection;
     UserCollectAdapter recentTopColAdapter;
     RecentTopFooter recentTopFooter;
     UserCollectAdapter hotColAdapter;
+    LoadMoreFooter loadMoreFooter;
     EndlessRecyclerOnScrollListener endlessScrollListener;
     PublishSubject<List<Collect>> collectSubject = PublishSubject.create();
     final int PAGE_COUNT = 20;
@@ -134,11 +134,6 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
         hotColAdapter = new UserCollectAdapter(true, this);
         SectionAdapter hotColHeaderAdapter = new SectionAdapter(hotColAdapter);
         hotColHeaderAdapter.addHeader(new HotSection());
-
-        // hot adapter
-        hotAdapter = new HotAdapter(recentTopHeaderAdapter, hotColHeaderAdapter);
-
-        sectionAdapter = new SectionAdapter(hotAdapter);
         loadMoreFooter = new LoadMoreFooter(context(), new LoadMoreFooter.OnLoadMoreClickListener() {
             @Override
             public void onLoadMoreClick(LoadMoreFooter footer, int state) {
@@ -148,9 +143,16 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
                 }
             }
         });
-        sectionAdapter.addFooter(loadMoreFooter);
+        hotColHeaderAdapter.addFooter(loadMoreFooter);
 
-        hotRv.setAdapter(sectionAdapter);
+        // hot adapter
+        hotAdapter = new HotAdapter(recentTopHeaderAdapter, hotColHeaderAdapter);
+
+        //sectionAdapter = new SectionAdapter(hotAdapter);
+
+        //sectionAdapter.addFooter(loadMoreFooter);
+
+        hotRv.setAdapter(hotAdapter);
 
         subscribeCollectSubject();
         showCollects();
@@ -171,7 +173,7 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
             public void onDaySelected(RecentTopSection section, DialogInterface dialog, int days) {
                 log.i("onDaySelected %d", days);
                 recentTopSection.setDays(days);
-                sectionAdapter.notifyDataSetChanged();
+                hotAdapter.notifyDataSetChanged();
                 refreshRecentTopList(true);
             }
         });
@@ -181,7 +183,7 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
         hotRv.post(new Runnable() {
             @Override
             public void run() {
-                sectionAdapter.notifyDataSetChanged();
+                hotAdapter.notifyDataSetChanged();
             }
         });
     }
@@ -249,11 +251,17 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
         if (collectList.size() < PAGE_COUNT) {
             endlessScrollListener.setEnabled(false);
             loadMoreFooter.setState(LoadMoreFooter.STATE_NO_MORE);
-            notifyRvDataSetChanged();
+            //notifyRvDataSetChanged();
+            hotAdapter.notifyDataSetChanged();
         } else {
             endlessScrollListener.setEnabled(true);
             loadMoreFooter.setState(LoadMoreFooter.STATE_HIDE);
-            notifyRvDataSetChanged();
+            hotAdapter.notifyDataSetChanged();
+            //notifyRvDataSetChanged();
+        }
+
+        if (update) {
+            log.i("CollectList-count %d", collectList.size());
         }
 
         if (update) {
@@ -268,7 +276,13 @@ public class FindFragment extends NavFragment implements UserCollectAdapter.OnCo
             @Override
             public List<Collect> call(List<Collect> collects) {
                 final List<Collect> collectList = hotColAdapter.getCollectList();
-                return ListUtils.combineSortList(collectList, collects, Collect.FAVOR_UPDATE_COMPARATOR);
+                List<Collect> result = ListUtils.combineSortList(collectList, collects, Collect.FAVOR_UPDATE_COMPARATOR);
+                if (result.size() == collectList.size()) {
+                    endlessScrollListener.setEnabled(false);
+                    loadMoreFooter.setState(LoadMoreFooter.STATE_NO_MORE);
+                    hotAdapter.notifyDataSetChanged();
+                }
+                return result;
             }
         };
     }

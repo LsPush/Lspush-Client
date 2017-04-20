@@ -278,11 +278,25 @@ public class CollectWebViewActivity extends WebViewActivity
                     //if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
                     //    bottomSheetBehavior.setPeekHeight(wrapHeight);
                     //}
+                    log.i("StateChanged newState %d peek height: %d", newState, bottomSheetBehavior.getPeekHeight());
                 }
 
                 @Override
                 public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                    bottomSheetBehavior.setPeekHeight(fixHeight);
+                    //log.i("* peek height: %d to %d", bottomSheetBehavior.getPeekHeight(), fixHeight);
+                    //bottomSheetBehavior.setPeekHeight(fixHeight);
+                    //log.i("* peek height: %d", bottomSheetBehavior.getPeekHeight());
+                }
+            });
+
+            bottomLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (bottomSheetBehavior.getState() != BottomSheetBehavior.STATE_COLLAPSED) {
+                        log.i("bottomLayout peek height: %d to %d", bottomSheetBehavior.getPeekHeight(), wrapHeight);
+                        bottomSheetBehavior.setPeekHeight(wrapHeight);
+                        log.i("bottomLayout peek height: %d", bottomSheetBehavior.getPeekHeight());
+                    }
                 }
             });
         }
@@ -391,7 +405,12 @@ public class CollectWebViewActivity extends WebViewActivity
 
     public void onFavorBtnClick() {
         if (Build.VERSION.SDK_INT <= 19) {
+            log.i("FavorBtn state: %d peek height: %d to %d", bottomSheetBehavior.getState(),
+                bottomSheetBehavior.getPeekHeight(), wrapHeight);
+            int state = bottomSheetBehavior.getState();
             bottomSheetBehavior.setPeekHeight(wrapHeight);
+            bottomSheetBehavior.setState(state);
+            log.i("FavorBtn peek height: %d", bottomSheetBehavior.getPeekHeight());
         }
         collect.toggleFavor();
         updateCollectView();
@@ -423,15 +442,20 @@ public class CollectWebViewActivity extends WebViewActivity
     }
 
     public void onCommentBtnClick() {
-        if (Build.VERSION.SDK_INT <= 19) {
-            bottomSheetBehavior.setPeekHeight(wrapHeight);
-        }
-        bottomSheetBehavior.setPeekHeight(fixHeight);
         if (isBottomBarShowing()) {
+            if (Build.VERSION.SDK_INT <= 19) {
+                log.i("CommentBtn peek height: %d to %d", bottomSheetBehavior.getPeekHeight(), fixHeight);
+                bottomSheetBehavior.setPeekHeight(fixHeight);
+            }
             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         } else {
+            if (Build.VERSION.SDK_INT <= 19) {
+                log.i("CommentBtn peek height: %d to %d", bottomSheetBehavior.getPeekHeight(), wrapHeight);
+                bottomSheetBehavior.setPeekHeight(wrapHeight);
+            }
             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         }
+        log.i("CommentBtn peek height: %d", bottomSheetBehavior.getPeekHeight());
     }
 
     public void submitComment() {
