@@ -3,8 +3,8 @@ apply plugin: 'com.github.ben-manes.versions'
 
 buildscript {
     repositories {
-    	//jcenter()
-    	maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+    	jcenter()
+    	//maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
     }
     dependencies {
         // https://github.com/google/android-gradle-dsl
@@ -14,14 +14,14 @@ buildscript {
         // run help->dependencyUpdates to see new available version
         classpath "com.github.ben-manes:gradle-versions-plugin:0.14.0"
         // bugly file upload
-        classpath "com.tencent.bugly:symtabfileuploader:2.0.9"
+        classpath "com.tencent.bugly:symtabfileuploader:2.1.0"
     }
 }
 
 allprojects {
     repositories {
-        //jcenter()
-        maven { url "http://maven.aliyun.com/nexus/content/groups/public"}
+        jcenter()
+        //maven { url "http://maven.aliyun.com/nexus/content/groups/public"}
         maven { url 'https://jitpack.io' }
     }
 }
