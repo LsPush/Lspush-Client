@@ -75,12 +75,12 @@ import rx.schedulers.Schedulers;
 import rx.subjects.PublishSubject;
 
 public class CollectWebViewActivity extends WebViewActivity
-    implements ProvideComponent<MainComponent>, CommentAdapter.OnItemClickListener {
+        implements ProvideComponent<MainComponent>, CommentAdapter.OnItemClickListener {
 
     public static final String ARG_COLLECT_ID = "arg.collect.id";
     public static final String ARG_SHOW_COMMENT = "arg.show.comment";
     public static final String REQUEST_DATA_COLLECT_ID
-        = "com.tomeokin.lspush.module.main.com.CollectWebViewActivity.collect.id";
+            = "com.tomeokin.lspush.module.main.com.CollectWebViewActivity.collect.id";
     private Log log = AppLogger.of("CollectWebViewActivity");
     private ImageButton backBtn;
     private ImageButton forwardBtn;
@@ -110,8 +110,10 @@ public class CollectWebViewActivity extends WebViewActivity
     int fixHeight;
     int wrapHeight = 162;
 
-    @Inject HomePresenter homePresenter;
-    @Inject Prefer prefer;
+    @Inject
+    HomePresenter homePresenter;
+    @Inject
+    Prefer prefer;
 
     @Override
     public MainComponent component() {
@@ -268,7 +270,7 @@ public class CollectWebViewActivity extends WebViewActivity
 
         bottomSheetBehavior.setHideable(false);
         fixHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 56,
-            getResources().getDisplayMetrics());
+                getResources().getDisplayMetrics());
         // https://code.google.com/p/android/issues/detail?can=2&q=type%3DDefect%20BottomSheetBehavior&colspec=ID%20Type%20Status%20Owner%20Summary%20Stars&groupby=&sort=-stars&id=234951
         if (Build.VERSION.SDK_INT <= 19) {
             bottomSheetBehavior.setPeekHeight(wrapHeight);
@@ -278,13 +280,13 @@ public class CollectWebViewActivity extends WebViewActivity
                     //if (bottomSheetBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
                     //    bottomSheetBehavior.setPeekHeight(wrapHeight);
                     //}
-                    log.i("StateChanged newState %d peek height: %d", newState, bottomSheetBehavior.getPeekHeight());
+                    log.logStub().i("StateChanged newState %d peek height: %d", newState, bottomSheetBehavior.getPeekHeight());
                 }
 
                 @Override
                 public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-                    //log.i("* peek height: %d to %d", bottomSheetBehavior.getPeekHeight(), fixHeight);
-                    //bottomSheetBehavior.setPeekHeight(fixHeight);
+                    log.logStub().i("* peek height: %d to %d", bottomSheetBehavior.getPeekHeight(), fixHeight);
+                    bottomSheetBehavior.setPeekHeight(fixHeight);
                     //log.i("* peek height: %d", bottomSheetBehavior.getPeekHeight());
                 }
             });
@@ -320,37 +322,37 @@ public class CollectWebViewActivity extends WebViewActivity
         endlessScrollListener.setEnabled(false);
         sectionAdapter.notifyDataSetChanged();
         homePresenter.getComments(collect.getId(), 0, PAGE_COUNT,
-            new RxRequestAdapter<List<Comment>>(context(), false) {
-                @Override
-                public void onRequestSuccess(List<Comment> data) {
-                    publishCollectList(true, data);
-                }
+                new RxRequestAdapter<List<Comment>>(context(), false) {
+                    @Override
+                    public void onRequestSuccess(List<Comment> data) {
+                        publishCollectList(true, data);
+                    }
 
-                @Override
-                public void onRequestFailed(@Nullable Throwable t, @Nullable String message) {
-                    super.onRequestFailed(t, message);
-                    sectionAdapter.notifyDataSetChanged();
-                }
-            });
+                    @Override
+                    public void onRequestFailed(@Nullable Throwable t, @Nullable String message) {
+                        super.onRequestFailed(t, message);
+                        sectionAdapter.notifyDataSetChanged();
+                    }
+                });
     }
 
     public void loadNextCommentList() {
         int page = commentAdapter.getItemCount() / PAGE_COUNT;
         loadMoreFooter.setState(LoadMoreFooter.STATE_LOADING);
         homePresenter.getComments(collect.getId(), page, PAGE_COUNT,
-            new RxRequestAdapter<List<Comment>>(context(), false) {
-                @Override
-                public void onRequestSuccess(List<Comment> data) {
-                    publishCollectList(false, data);
-                }
+                new RxRequestAdapter<List<Comment>>(context(), false) {
+                    @Override
+                    public void onRequestSuccess(List<Comment> data) {
+                        publishCollectList(false, data);
+                    }
 
-                @Override
-                public void onRequestFailed(@Nullable Throwable t, @Nullable String message) {
-                    super.onRequestFailed(t, message);
-                    loadMoreFooter.setState(LoadMoreFooter.STATE_ERROR);
-                    sectionAdapter.notifyDataSetChanged();
-                }
-            });
+                    @Override
+                    public void onRequestFailed(@Nullable Throwable t, @Nullable String message) {
+                        super.onRequestFailed(t, message);
+                        loadMoreFooter.setState(LoadMoreFooter.STATE_ERROR);
+                        sectionAdapter.notifyDataSetChanged();
+                    }
+                });
     }
 
     public void publishCollectList(boolean update, List<Comment> commentList) {
@@ -378,35 +380,35 @@ public class CollectWebViewActivity extends WebViewActivity
     public void subscribeCommentSubject() {
         // @formatter:off
         commentSubject
-            .subscribeOn(Schedulers.computation())
-            .map(new Func1<List<Comment>, List<Comment>>() {
-                @Override
-                public List<Comment> call(List<Comment> comments) {
-                    final List<Comment> commentList = commentAdapter.getCommentList();
-                    return ListUtils.combineSortList(commentList, comments, Comment.UPDATE_COMPARATOR);
-                }
-            })
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(new Subscriber<List<Comment>>() {
-                @Override
-                public void onCompleted() {}
+                .subscribeOn(Schedulers.computation())
+                .map(new Func1<List<Comment>, List<Comment>>() {
+                    @Override
+                    public List<Comment> call(List<Comment> comments) {
+                        final List<Comment> commentList = commentAdapter.getCommentList();
+                        return ListUtils.combineSortList(commentList, comments, Comment.UPDATE_COMPARATOR);
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Subscriber<List<Comment>>() {
+                    @Override
+                    public void onCompleted() {}
 
-                @Override
-                public void onError(Throwable e) {}
+                    @Override
+                    public void onError(Throwable e) {}
 
-                @Override
-                public void onNext(List<Comment> collects) {
-                    commentAdapter.setCommentList(collects);
-                    sectionAdapter.notifyDataSetChanged();
-                }
-            });
+                    @Override
+                    public void onNext(List<Comment> collects) {
+                        commentAdapter.setCommentList(collects);
+                        sectionAdapter.notifyDataSetChanged();
+                    }
+                });
         // @formatter:on
     }
 
     public void onFavorBtnClick() {
         if (Build.VERSION.SDK_INT <= 19) {
             log.i("FavorBtn state: %d peek height: %d to %d", bottomSheetBehavior.getState(),
-                bottomSheetBehavior.getPeekHeight(), wrapHeight);
+                    bottomSheetBehavior.getPeekHeight(), wrapHeight);
             int state = bottomSheetBehavior.getState();
             bottomSheetBehavior.setPeekHeight(wrapHeight);
             bottomSheetBehavior.setState(state);
